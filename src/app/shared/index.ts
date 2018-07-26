@@ -1,3 +1,4 @@
+import { MdbBootstrap } from './mdb-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
 import { CommonModule } from '@angular/common';
@@ -15,5 +16,6 @@ export const SHARED_MODULES = [
   BrowserModule,
   BsDropdownModule.forRoot(),
   AngularFontAwesomeModule,
-  NgbModule.forRoot()
+  NgbModule.forRoot(),
+  MdbBootstrap
 ];

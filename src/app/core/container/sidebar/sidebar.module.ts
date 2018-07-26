@@ -1,3 +1,4 @@
+import { NavbarSearchModule } from './../navbar-search/navbar-search.module';
 // Angular Imports
 import { NgModule } from '@angular/core';
 
@@ -6,7 +7,7 @@ import { SidebarComponent } from './sidebar.component';
 
 @NgModule({
     imports: [
-
+      NavbarSearchModule
     ],
     declarations: [
         SidebarComponent,

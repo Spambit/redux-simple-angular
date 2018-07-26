@@ -1,3 +1,5 @@
+import { SidebarModule } from './../sidebar/sidebar.module';
+import { BrandModule } from '../brand/brand.module';
 import { NavbarSearchModule } from './../navbar-search/navbar-search.module';
 // Angular Imports
 import { NgModule } from '@angular/core';
@@ -13,6 +15,8 @@ import { SHARED_MODULES } from '../../../shared';
       NavbarSearchModule,
       NavbarMenuModule,
       UserModule,
+      BrandModule,
+      SidebarModule,
       ...SHARED_MODULES
     ],
     declarations: [

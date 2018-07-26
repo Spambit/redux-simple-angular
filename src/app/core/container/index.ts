@@ -1,3 +1,4 @@
+import { BrandModule } from './brand/brand.module';
 import { NavbarSearchModule } from './navbar-search/navbar-search.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { NavbarMenuModule } from './navbar-menu/navbar-menu.module';
@@ -9,6 +10,8 @@ export const APP_CONTAINER_MODULES = [
   SidebarModule,
   NavbarMenuModule,
   NavbarModule,
-  NavbarSearchModule
+  NavbarSearchModule,
+  BrandModule,
+  SidebarModule
 ];
 
