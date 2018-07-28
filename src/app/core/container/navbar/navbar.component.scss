@@ -4,6 +4,7 @@
   grid-auto-rows: minmax(1em,auto);
   grid-template-columns: repeat(12,1fr);
   grid-template-rows: 1;
+  grid-column-gap: 20px;
   @media only screen and (max-width: 768px) {
     grid-template-rows: 2;
     grid-row-gap: 5px;
@@ -24,18 +25,19 @@
 .navbar-item.user {
   grid-row: 1;
   grid-column: 12;
+  display: grid;
+  justify-items: center;
 }
 
-.navbar .navbar-item,
-.navbar .navbar-item button {
+.navbar .navbar-item {
   border: 0px solid whitesmoke;
   font-size: 1.3rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
 }
 
-.navbar .navbar-item:enabled:hover,
-.navbar .navbar-item:enabled:focus,
+.navbar .navbar-item:hover,
+.navbar .navbar-item:focus,
 .navbar .navbar-item button:enabled:hover,
 .navbar .navbar-item button:enabled:focus {
   text-decoration: none;
