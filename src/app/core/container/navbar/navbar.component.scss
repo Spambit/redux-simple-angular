@@ -1,0 +1,47 @@
+.navbar {
+  font-size: 1rem;
+  display: grid;
+  grid-auto-rows: minmax(1em,auto);
+  grid-template-columns: repeat(12,1fr);
+  grid-template-rows: 1;
+  @media only screen and (max-width: 768px) {
+    grid-template-rows: 2;
+    grid-row-gap: 5px;
+  }
+}
+
+.navbar-item.search {
+  grid-row: 1;
+  grid-column: 4/10;
+}
+@media only screen and (max-width: 768px) {
+  .navbar-item.search {
+    grid-row: 2;
+    grid-column: 1/13;
+  }
+}
+
+.navbar-item.user {
+  grid-row: 1;
+  grid-column: 12;
+}
+
+.navbar .navbar-item,
+.navbar .navbar-item button {
+  border: 0px solid whitesmoke;
+  font-size: 1.3rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.navbar .navbar-item:enabled:hover,
+.navbar .navbar-item:enabled:focus,
+.navbar .navbar-item button:enabled:hover,
+.navbar .navbar-item button:enabled:focus {
+  text-decoration: none;
+  cursor: pointer;
+  color: azure;
+  outline: 0;
+}
+
+

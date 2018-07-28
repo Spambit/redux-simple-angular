@@ -3,3 +3,8 @@
   border-color: #e9dede;
   box-shadow: none;
 }
+
+.sidebar-search .input-group-text:hover,
+.sidebar-search .input-group-text:focus {
+  color: azure;
+}
