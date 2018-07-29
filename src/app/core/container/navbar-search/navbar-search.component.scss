@@ -5,6 +5,7 @@
 }
 
 .sidebar-search .input-group-text:hover,
-.sidebar-search .input-group-text:focus {
+.sidebar-search .input-group-text:focus,
+.sidebar-search input.search-menu:focus+span>i {
   color: azure;
 }

@@ -1,1 +1,26 @@
-// component css goes here
+:host {
+  display: grid;
+  grid-auto-rows: minmax(1em,auto);
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1;
+  grid-column-gap: 20px;
+  align-items: center;
+}
+
+.logo > h4{
+  margin: auto;
+}
+
+.logo:hover,
+.logo:focus {
+  cursor: pointer;
+}
+
+.sidebar-toggler:hover,
+.sidebar-toggler:focus{
+  cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
+  color: azure;
+  outline: 0;
+}

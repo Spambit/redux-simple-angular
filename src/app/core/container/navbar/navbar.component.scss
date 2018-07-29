@@ -5,6 +5,7 @@
   grid-template-columns: repeat(12,1fr);
   grid-template-rows: 1;
   grid-column-gap: 20px;
+  align-items: center;
   @media only screen and (max-width: 768px) {
     grid-template-rows: 2;
     grid-row-gap: 5px;
@@ -25,8 +26,6 @@
 .navbar-item.user {
   grid-row: 1;
   grid-column: 12;
-  display: grid;
-  justify-items: center;
 }
 
 .navbar .navbar-item {
@@ -36,10 +35,8 @@
   border-radius: 0.25rem;
 }
 
-.navbar .navbar-item:hover,
-.navbar .navbar-item:focus,
-.navbar .navbar-item button:enabled:hover,
-.navbar .navbar-item button:enabled:focus {
+.navbar .navbar-item:not(.brand):hover,
+.navbar .navbar-item:not(.brand):focus{
   text-decoration: none;
   cursor: pointer;
   color: azure;
