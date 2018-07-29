@@ -1,6 +1,8 @@
 .navbar {
   font-size: 1rem;
   display: grid;
+  position: fixed;
+  z-index: 1000;
   grid-auto-rows: minmax(1em,auto);
   grid-template-columns: repeat(12,1fr);
   grid-template-rows: 1;

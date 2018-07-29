@@ -1,6 +1,8 @@
 // component css goes here
 :host {
-  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background: #1d1d1d;
 }
 
 .sidebar-item.header {
@@ -21,7 +23,7 @@
 .sidebar-container {
   display: grid;
   width: 250px;
-  height: 100vh;
+  height: 100%;
   grid-template-columns: 1;
   grid-template-rows: repeat(12,1fr);
   padding: 10px;
