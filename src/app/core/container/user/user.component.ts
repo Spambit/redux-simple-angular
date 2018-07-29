@@ -4,14 +4,7 @@ import { Component } from '@angular/core';
     moduleId: module.id,
     selector: 'app-user',
     templateUrl: 'user.component.html',
-    styleUrls: ['user.component.scss'],
-    styles: [`
-      :host {
-        display: grid;
-        align-items: center;
-        justify-items: center;
-      }
-    `]
+    styleUrls: ['user.component.scss']
 })
 export class UserComponent {
 

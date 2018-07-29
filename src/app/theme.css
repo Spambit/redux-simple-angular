@@ -3,83 +3,32 @@
 .chiller-theme.sidebar-container,
 .chiller-theme.navbar,
 .chiller-theme > div , button {
-  background: #1d1d1d;
-  color: #bdbdbd;
-}
-
-.chiller-theme.sidebar-container .sidebar-header,
-.chiller-theme.sidebar-container .sidebar-search,
-.chiller-theme.sidebar-container .sidebar-item.menu {
-  border-top: 1px solid #2b2b2b;
-}
-
-.chiller-theme .sidebar-search input.search-menu,
-.chiller-theme .sidebar-search .input-group-text {
-  border-color: #2b2b2b !important;
-  box-shadow: none !important;
-}
-
-.chiller-theme.sidebar-container .sidebar-header .user-info .user-role,
-.chiller-theme.sidebar-container .sidebar-header .user-info .user-status,
-.chiller-theme.sidebar-container input.search-menu,
-.chiller-theme.sidebar-container .input-group-text,
-.chiller-theme.sidebar-container .sidebar-brand>a,
-.chiller-theme.sidebar-container .sidebar-item.menu ul li a,
-.chiller-theme .sidebar-footer>a {
-  color: #bdbdbd;
-}
-
-.chiller-theme.sidebar-container .sidebar-item.menu ul li:hover>a,
-.chiller-theme.sidebar-container .sidebar-header .user-info,
-.chiller-theme.sidebar-container .sidebar-brand>a:hover,
-.chiller-theme .sidebar-footer>a:hover i {
-  color: #ffffff;
-}
-
-.page-wrapper.chiller-theme.toggled #toggle-sidebar div {
-  background: #bdbdbd;
-}
-
-.page-wrapper.chiller-theme.toggled #toggle-sidebar:hover div {
-  background: #ffffff;
-}
-
-.chiller-theme.sidebar-container ul li:hover a i,{
-  color: #ffffff;
-}
-
-.chiller-theme.sidebar-container .sidebar-item.menu ul li a i,
-.chiller-theme .sidebar-search input.search-menu,
-.chiller-theme .sidebar-search .input-group-text {
-  background: #2b2b2b;
-}
-
-.chiller-theme.sidebar-container .sidebar-item.menu .header-menu span {
-  color: #6c7b88;
+  background: #1d1d1d !important;
+  color: #bdbdbd !important;
 }
 
 .chiller-theme .sidebar-footer {
-  background: #2b2b2b;
-  box-shadow: 0px -1px 5px #131212;
-  border-top: 1px solid #3a3a3a;
+  background: #2b2b2b !important;
+  box-shadow: 0px -1px 5px #131212 !important;
+  border-top: 1px solid #3a3a3a !important;
 }
 
 .chiller-theme .sidebar-footer>a:first-child {
-  border-left: none;
+  border-left: none !important;
 }
 
 .chiller-theme .sidebar-footer>a:last-child {
-  border-right: none;
+  border-right: none !important;
 }
 
 .chiller-theme .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
 .chiller-theme .mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar,
 .chiller-theme .mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
-  background: #636363;
+  background: #636363 !important;
 }
 
 .chiller-theme .mCSB_scrollTools .mCSB_draggerRail {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 /*----------------page-wrapper----------------*/

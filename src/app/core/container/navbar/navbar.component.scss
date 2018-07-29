@@ -26,6 +26,15 @@
 .navbar-item.user {
   grid-row: 1;
   grid-column: 12;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.navbar-item.user i:hover,
+.navbar-item.user i:focus {
+  color: azure;
+  cursor: pointer;
 }
 
 .navbar .navbar-item {
@@ -33,14 +42,6 @@
   font-size: 1.3rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
-}
-
-.navbar .navbar-item:not(.brand):hover,
-.navbar .navbar-item:not(.brand):focus{
-  text-decoration: none;
-  cursor: pointer;
-  color: azure;
-  outline: 0;
 }
 
 

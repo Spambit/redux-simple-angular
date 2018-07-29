@@ -25,6 +25,22 @@
   grid-template-columns: 1;
   grid-template-rows: repeat(12,1fr);
   padding: 10px;
+  background: lightgray;
+}
+
+/*----------------------sidebar-header-------------------------*/
+
+.sidebar-container .sidebar-item.header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #2b2b2b;
+}
+
+/*----------------------sidebar-search-------------------------*/
+
+.sidebar-container .sidebar-item.search {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #2b2b2b;
 }
 
 /*----------------------sidebar-menu-------------------------*/
@@ -54,6 +70,10 @@
   padding: 8px 30px 8px 20px;
 }
 
+.sidebar-container .sidebar-item.menu ul li a > i, span {
+  color: rgb(49, 48, 48);
+}
+
 .sidebar-container .sidebar-item.menu ul li a i {
   margin-right: 10px;
   font-size: 12px;
@@ -67,6 +87,10 @@
 .sidebar-container .sidebar-item.menu ul li a:hover > i::before {
   display: inline-block;
   animation: swing ease-in-out 0.5s 1 alternate;
+}
+
+.sidebar-container .sidebar-item.menu ul li a:hover > i, span {
+  color: black;
 }
 
 @keyframes swing {
@@ -175,19 +199,6 @@ body {
   text-decoration: none;
 }
 
-/*----------------sidebar-content----------------*/
-
-.sidebar-content {
-  max-height: calc(100% - 30px);
-  height: calc(100% - 30px);
-  overflow-y: auto;
-  position: relative;
-}
-
-.sidebar-content.desktop {
-  overflow-y: hidden;
-}
-
 /*--------------------sidebar-brand----------------------*/
 
 .sidebar-wrapper .sidebar-brand {
@@ -211,44 +222,6 @@ body {
 .sidebar-wrapper .sidebar-header {
   padding: 20px;
   overflow: hidden;
-}
-
-.sidebar-wrapper .sidebar-header .user-pic {
-  float: left;
-  width: 60px;
-  padding: 2px;
-  border-radius: 12px;
-  margin-right: 15px;
-  overflow: hidden;
-}
-
-.sidebar-wrapper .sidebar-header .user-pic img {
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
-}
-
-.sidebar-wrapper .sidebar-header .user-info {
-  float: left;
-}
-
-.sidebar-wrapper .sidebar-header .user-info > span {
-  display: block;
-}
-
-.sidebar-wrapper .sidebar-header .user-info .user-role {
-  font-size: 12px;
-}
-
-.sidebar-wrapper .sidebar-header .user-info .user-status {
-  font-size: 11px;
-  margin-top: 4px;
-}
-
-.sidebar-wrapper .sidebar-header .user-info .user-status i {
-  font-size: 8px;
-  margin-right: 4px;
-  color: #5cb85c;
 }
 
 /*-----------------------sidebar-search------------------------*/
