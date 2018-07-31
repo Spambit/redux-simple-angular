@@ -1,4 +1,4 @@
-import { SHARED_MODULES } from './../../../shared/index';
+import { SharedModules } from '../../../shared';
 // Angular Imports
 import { NgModule } from '@angular/core';
 
@@ -7,7 +7,7 @@ import { BrandComponent } from './brand.component';
 
 @NgModule({
     imports: [
-      SHARED_MODULES
+      SharedModules
     ],
     declarations: [
         BrandComponent,

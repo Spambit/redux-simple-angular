@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Animations } from '@shared/animations';
 
 @Component({
     moduleId: module.id,
@@ -7,5 +8,4 @@ import { Component } from '@angular/core';
     styleUrls: ['sidebar.component.scss', 'sidebar.component.nightmode.scss']
 })
 export class SidebarComponent {
-
 }

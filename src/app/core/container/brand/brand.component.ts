@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
     moduleId: module.id,
@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
     styleUrls: ['brand.component.scss']
 })
 export class BrandComponent {
-
+  private sidebarTogglerState = false;
+  @Output() sidebarTogglerStateChange: EventEmitter<boolean> = new EventEmitter();
+  onSidebarTogglerClick() {
+    this.sidebarTogglerState = !this.sidebarTogglerState;
+    this.sidebarTogglerStateChange.emit(this.sidebarTogglerState);
+  }
 }

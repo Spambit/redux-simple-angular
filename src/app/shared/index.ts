@@ -1,3 +1,4 @@
+import { NgModule } from '@angular/core';
 import { MdbBootstrap } from './mdb-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
@@ -8,14 +9,22 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-export const SHARED_MODULES = [
-  MaterialModule,
-  CommonModule,
-  FormsModule,
-  BrowserAnimationsModule,
-  BrowserModule,
-  BsDropdownModule.forRoot(),
-  AngularFontAwesomeModule,
-  NgbModule.forRoot(),
-  MdbBootstrap
-];
+@NgModule({
+  imports: [],
+  declarations: [],
+  exports: [
+    MdbBootstrap,
+    BrowserAnimationsModule,
+    MaterialModule,
+    CommonModule,
+    FormsModule,
+    BrowserModule,
+    AngularFontAwesomeModule,
+    BsDropdownModule,
+    NgbModule
+  ],
+  providers: []
+})
+export class SharedModules {
+
+}
