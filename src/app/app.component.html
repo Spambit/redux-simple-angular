@@ -1,9 +1,8 @@
 <app-navbar (sidebarTogglerStateChange)='onSidebarTogglerStateChange($event)'></app-navbar>
 <div class="app-sidebar-container"
-[class.closed]='sidebarDidDisappear'
-[class.opened]='sidebarShouldAppear'
-[@slideLeft]='sideBarState' (@slideLeft.start)='sidebarSlideDidStart($event)'
-(@slideLeft.done)='sidebarSlideDidEnd($event)'>
-  <app-sidebar class="sidebar-container-item sidebar"></app-sidebar>
-  <div class="sidebar-container-item overlay"></div>
+[ngClass]='addClasses()'>
+  <app-sidebar class="sidebar-container-item sidebar"
+  [@slideLeft]='sideBarState' (@slideLeft.start)='sidebarSlideDidStart($event)'
+  (@slideLeft.done)='sidebarSlideDidEnd($event)'></app-sidebar>
+  <div class="sidebar-container-item overlay" [@overlay]='overlayState'></div>
 </div>

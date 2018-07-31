@@ -19,7 +19,16 @@ const slideLeft = trigger("slideLeft", [
       transform: "translateX(-100%)"
     })
   ),
-  transition("disappear <=> appear", animate("400ms ease-in"))
+  transition("disappear <=> appear", animate("200ms ease-in"))
 ]);
 
-export const Animations = { slideLeftAnimation: slideLeft };
+const overlay = trigger("overlay", [
+  state("in", style({ opacity: 0 })),
+  state("out", style({ opacity: 0.5 })),
+  transition("in <=> out", animate("200ms"))
+]);
+
+export const Animations = {
+  slideLeftAnimation: slideLeft,
+  OverlayAnimation: overlay
+};

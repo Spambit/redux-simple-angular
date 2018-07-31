@@ -1,9 +1,12 @@
 :host {
   $sm-device-gap-top : 90px;
   $lg-device-gap-top : 56px;
+  $sidebar-z-index : 100;
+  $sidebar-overlay-z-index : 99;
 
   .app-sidebar-container {
     font-size: 1rem;
+    width: 100vw;
     display: grid;
     position: absolute;
     grid-auto-rows: minmax(1em,auto);
@@ -12,12 +15,14 @@
     .sidebar-container-item.sidebar {
       grid-row: 1;
       grid-column: 1/4;
+      z-index: #{$sidebar-z-index};
     }
 
     .sidebar-container-item.overlay {
       grid-row: 1;
-      grid-column: 4/13;
-      background: transparent;
+      grid-column: 1/13;
+      background: #2b2a2a;
+      z-index: #{$sidebar-overlay-z-index};
     }
 
     &.opened {
@@ -41,7 +46,7 @@
 
       .sidebar-container-item.overlay {
         grid-row: 1;
-        grid-column: 8/13;
+        grid-column: 1/13;
       }
     }
   }
