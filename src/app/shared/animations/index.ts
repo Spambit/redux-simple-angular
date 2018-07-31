@@ -23,8 +23,8 @@ const slideLeft = trigger("slideLeft", [
 ]);
 
 const overlay = trigger("overlay", [
-  state("in", style({ opacity: 0 })),
-  state("out", style({ opacity: 0.5 })),
+  state("in", style({ opacity: 0.5 })),
+  state("out", style({ opacity: 0 })),
   transition("in <=> out", animate("200ms"))
 ]);
 
