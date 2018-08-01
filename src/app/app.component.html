@@ -1,8 +1,81 @@
 <app-navbar (sidebarTogglerStateChange)='onSidebarTogglerStateChange($event)'></app-navbar>
-<div class="app-sidebar-container"
-[ngClass]='addClasses()'>
-  <app-sidebar class="sidebar-container-item sidebar"
-  [@slideLeft]='sideBarState' (@slideLeft.start)='sidebarSlideDidStart($event)'
-  (@slideLeft.done)='sidebarSlideDidEnd($event)'></app-sidebar>
-  <div class="sidebar-container-item overlay" [@overlay]='overlayState'></div>
+<div class="app-sidebar-container">
+  <app-sidebar class="sidebar-container-item sidebar" [@slideLeft]='sideBarState' (@slideLeft.start)='sidebarSlideDidStart($event)'
+    (@slideLeft.done)='sidebarSlideDidEnd($event)'></app-sidebar>
+  <div class="sidebar-container-item overlay" [class.show]='sidebarWillAppear' [class.hide]='sidebarDidDisappear' [@overlay]='overlayState'></div>
+  <div class='sidebar-container-item main'>
+    <div class='test-main-area'>
+      <div class="card" style="width:200px">
+        <div class="card-body">
+          <h4 class="card-title">Jane Doe</h4>
+          <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p>
+          <a href="#" class="btn btn-primary">See Profile</a>
+        </div>
+        <img class="card-img-bottom" src="https://fakeimg.pl/250x100/" alt="Card image" style="width:100%">
+      </div>
+
+      <div class="card" style="width:200px">
+        <div class="card-body">
+          <h4 class="card-title">Jane Doe</h4>
+          <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p>
+          <a href="#" class="btn btn-primary">See Profile</a>
+        </div>
+        <img class="card-img-bottom" src="https://fakeimg.pl/250x100/" alt="Card image" style="width:100%">
+      </div>
+
+      <div class="card" style="width:200px">
+        <div class="card-body">
+          <h4 class="card-title">Jane Doe</h4>
+          <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p>
+          <a href="#" class="btn btn-primary">See Profile</a>
+        </div>
+        <img class="card-img-bottom" src="https://fakeimg.pl/250x100/" alt="Card image" style="width:100%">
+      </div>
+
+      <div class="card" style="width:200px">
+        <div class="card-body">
+          <h4 class="card-title">Jane Doe</h4>
+          <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p>
+          <a href="#" class="btn btn-primary">See Profile</a>
+        </div>
+        <img class="card-img-bottom" src="https://fakeimg.pl/250x100/" alt="Card image" style="width:100%">
+      </div>
+
+      <div class="card" style="width:200px">
+        <div class="card-body">
+          <h4 class="card-title">Jane Doe</h4>
+          <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p>
+          <a href="#" class="btn btn-primary">See Profile</a>
+        </div>
+        <img class="card-img-bottom" src="https://fakeimg.pl/250x100/" alt="Card image" style="width:100%">
+      </div>
+
+      <div class="card" style="width:200px">
+        <div class="card-body">
+          <h4 class="card-title">Jane Doe</h4>
+          <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p>
+          <a href="#" class="btn btn-primary">See Profile</a>
+        </div>
+        <img class="card-img-bottom" src="https://fakeimg.pl/250x100/" alt="Card image" style="width:100%">
+      </div>
+
+      <div class="card" style="width:200px">
+        <div class="card-body">
+          <h4 class="card-title">Jane Doe</h4>
+          <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p>
+          <a href="#" class="btn btn-primary">See Profile</a>
+        </div>
+        <img class="card-img-bottom" src="https://fakeimg.pl/250x100/" alt="Card image" style="width:100%">
+      </div>
+
+      <div class="card" style="width:200px">
+        <div class="card-body">
+          <h4 class="card-title">Jane Doe</h4>
+          <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p>
+          <a href="#" class="btn btn-primary">See Profile</a>
+        </div>
+        <img class="card-img-bottom" src="https://fakeimg.pl/250x100/" alt="Card image" style="width:100%">
+      </div>
+    </div>
+  </div>
 </div>

@@ -16,27 +16,27 @@ export class AppComponent {
     return this.sidebarShouldAppear ? 'in' : 'out';
   }
   sidebarWillAppear = false;
+  sidebarWillDisappear = false;
   sidebarDidAppear = false;
   sidebarDidDisappear = false;
   sidebarShouldAppear = false;
+  sidebarShouldDisappear = false;
   onSidebarTogglerStateChange(shouldOpen: boolean) {
-    this.sidebarShouldAppear = shouldOpen;
-  }
-
-  addClasses() {
-    return {
-      opened: this.sidebarShouldAppear,
-      closed : this.sidebarDidDisappear
-    };
-
+    this.sidebarShouldAppear = shouldOpen ;
+    this.sidebarShouldDisappear = !shouldOpen ;
   }
 
   sidebarSlideDidStart($event) {
-    this.sidebarWillAppear = $event.toState === 'appear' ? true : false;
+    this.sidebarDidAppear = false;
+    this.sidebarDidDisappear = false;
+    this.sidebarWillAppear = $event.toState === 'appear';
+    this.sidebarWillDisappear = $event.toState === 'disappear';
   }
 
   sidebarSlideDidEnd($event) {
-    this.sidebarDidDisappear = $event.toState === 'disappear' ? true : false;
-    this.sidebarDidAppear = $event.toState === 'appear' ? true : false;
+    this.sidebarDidDisappear = $event.toState === 'disappear' ;
+    this.sidebarDidAppear = $event.toState === 'appear' ;
+    this.sidebarWillAppear = false;
+    this.sidebarWillDisappear = false;
   }
 }
