@@ -22,8 +22,8 @@ export class AppComponent {
   sidebarShouldAppear = false;
   sidebarShouldDisappear = false;
   onSidebarTogglerStateChange(shouldOpen: boolean) {
-    this.sidebarShouldAppear = shouldOpen ;
-    this.sidebarShouldDisappear = !shouldOpen ;
+    this.sidebarShouldAppear = shouldOpen ? true : false;
+    this.sidebarShouldDisappear = !shouldOpen ? true : false;
   }
 
   sidebarSlideDidStart($event) {

@@ -1,4 +1,4 @@
-import { NavbarSearchModule } from './../navbar-search/navbar-search.module';
+import { NavbarSearchModule } from '../navbar-search/navbar-search.module';
 // Angular Imports
 import { NgModule } from '@angular/core';
 
