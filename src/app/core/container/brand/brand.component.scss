@@ -20,6 +20,6 @@
 .sidebar-toggler:focus{
   cursor: pointer;
   text-decoration: none;
-  color: azure;
+  color: azure !important; //TODO: Fix !important bug.
   outline: 0;
 }

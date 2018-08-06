@@ -2,7 +2,7 @@
 
 .chiller-theme.sidebar-container,
 .chiller-theme.navbar,
-.chiller-theme > div , button {
+.chiller-theme div , button {
   background: #1d1d1d !important;
   color: #bdbdbd !important;
 }

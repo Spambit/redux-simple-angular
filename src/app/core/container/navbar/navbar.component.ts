@@ -2,7 +2,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
     moduleId: module.id,
-    selector: 'app-navbar',
+    selector: 'yt-navbar',
     templateUrl: 'navbar.component.html',
     styleUrls: ['navbar.component.scss']
 })

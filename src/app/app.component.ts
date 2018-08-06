@@ -2,13 +2,13 @@ import { Animations } from '@shared/animations';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'yt-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations : [Animations.slideLeftAnimation, Animations.OverlayAnimation]
 })
 export class AppComponent {
-  title = 'app';
+  title = 'YTube';
   get sideBarState() {
     return this.sidebarShouldAppear ? 'appear' : 'disappear';
   }

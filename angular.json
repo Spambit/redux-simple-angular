@@ -112,11 +112,11 @@
   "defaultProject": "handson",
   "schematics": {
     "@schematics/angular:component": {
-      "prefix": "app",
+      "prefix": "yt",
       "styleext": "css"
     },
     "@schematics/angular:directive": {
-      "prefix": "app"
+      "prefix": "yt"
     }
   }
 }

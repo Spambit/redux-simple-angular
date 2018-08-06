@@ -12,6 +12,6 @@ export const APP_CONTAINER_MODULES = [
   NavbarModule,
   NavbarSearchModule,
   BrandModule,
-  SidebarModule
+  SidebarModule,
 ];
 

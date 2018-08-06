@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     moduleId: module.id,
-    selector: 'app-navbar-menu',
+    selector: 'yt-navbar-menu',
     templateUrl: 'navbar-menu.component.html',
     styleUrls: ['navbar-menu.component.scss']
 })

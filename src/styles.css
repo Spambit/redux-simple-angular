@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "./app/theme.css";
-@import "./app/shared/styles/scrollbar.scss"
+@import "./app/shared/styles/scrollbar.scss";
+@import "./app/shared/styles/bootstrap-modified.scss";
+
+body, html {
+  height: 100%;
+  background: #1b1b1b;
+}

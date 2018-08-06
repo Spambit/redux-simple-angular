@@ -2,7 +2,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
     moduleId: module.id,
-    selector: 'app-brand',
+    selector: 'yt-brand',
     templateUrl: 'brand.component.html',
     styleUrls: ['brand.component.scss']
 })

@@ -1,3 +1,4 @@
+import { CORE_COMPONENTS } from './../core/components';
 import { NgModule } from '@angular/core';
 import { MdbBootstrap } from './mdb-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -8,10 +9,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CORE_SERVICES } from '~/app/core/services';
 
 @NgModule({
   imports: [],
-  declarations: [],
+  declarations: [
+    ...CORE_COMPONENTS,
+  ],
   exports: [
     MdbBootstrap,
     BrowserAnimationsModule,
@@ -21,9 +25,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AngularFontAwesomeModule,
     BsDropdownModule,
-    NgbModule
+    NgbModule,
+    ...CORE_COMPONENTS
   ],
-  providers: []
+  providers: [...CORE_SERVICES]
 })
 export class SharedModules {
 
