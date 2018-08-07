@@ -1,4 +1,4 @@
-// Create own oauth2 credentials to use this program.
+// Create your own oauth2 credentials to use this program.
 import { YoutubeCredentials } from "./youtube_credentials";
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do

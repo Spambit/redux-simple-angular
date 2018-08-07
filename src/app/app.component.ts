@@ -1,19 +1,19 @@
-import { Animations } from '@shared/animations';
-import { Component } from '@angular/core';
+import { Animations } from "@shared/animations";
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'yt-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  animations : [Animations.slideLeftAnimation, Animations.OverlayAnimation]
+  selector: "yt-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
+  animations: [Animations.slideLeftAnimation, Animations.OverlayAnimation]
 })
 export class AppComponent {
-  title = 'YTube';
+  title = "YTube";
   get sideBarState() {
-    return this.sidebarShouldAppear ? 'appear' : 'disappear';
+    return this.sidebarShouldAppear ? "appear" : "disappear";
   }
   get overlayState() {
-    return this.sidebarShouldAppear ? 'in' : 'out';
+    return this.sidebarShouldAppear ? "in" : "out";
   }
   sidebarWillAppear = false;
   sidebarWillDisappear = false;
@@ -29,13 +29,13 @@ export class AppComponent {
   sidebarSlideDidStart($event) {
     this.sidebarDidAppear = false;
     this.sidebarDidDisappear = false;
-    this.sidebarWillAppear = $event.toState === 'appear';
-    this.sidebarWillDisappear = $event.toState === 'disappear';
+    this.sidebarWillAppear = $event.toState === "appear";
+    this.sidebarWillDisappear = $event.toState === "disappear";
   }
 
   sidebarSlideDidEnd($event) {
-    this.sidebarDidDisappear = $event.toState === 'disappear' ;
-    this.sidebarDidAppear = $event.toState === 'appear' ;
+    this.sidebarDidDisappear = $event.toState === "disappear";
+    this.sidebarDidAppear = $event.toState === "appear";
     this.sidebarWillAppear = false;
     this.sidebarWillDisappear = false;
   }

@@ -3,6 +3,7 @@ import { environment } from "~/environments/environment";
 
 @Injectable()
 export class LoginService {
+  $loginStatus
   private googleAuth: any;
   private isLoggedIn: boolean;
   constructor() {
