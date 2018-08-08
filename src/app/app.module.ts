@@ -1,10 +1,11 @@
+import { ApplicationStore } from "./store";
 import { RouterModule } from "@angular/router";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { SharedModules } from "./shared";
-import { ROUTES } from "./core/routers";
-import { APP_CONTAINER_MODULES } from "./core/container";
-import { AppComponent } from "./app.component";
+import { SharedModules } from "~/app/shared";
+import { ROUTES } from "~/app/core/routers";
+import { APP_CONTAINER_MODULES } from "~/app/core/container";
+import { AppComponent } from "~/app/app.component";
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,7 +13,8 @@ import { AppComponent } from "./app.component";
     BrowserModule,
     ...APP_CONTAINER_MODULES,
     RouterModule.forRoot(ROUTES, { useHash: true, enableTracing: true }),
-    SharedModules
+    SharedModules,
+    ApplicationStore.moduleWithProviders
   ],
   providers: [],
   bootstrap: [AppComponent]
