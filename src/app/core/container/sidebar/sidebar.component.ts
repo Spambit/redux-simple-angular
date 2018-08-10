@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Animations } from '@shared/animations';
+import { Animations } from '~/app/shared/animations';
 
 @Component({
     moduleId: module.id,

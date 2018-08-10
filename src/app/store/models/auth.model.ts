@@ -1,6 +1,6 @@
-import { User } from "~/app/store/models/user.model";
+import { User } from "./user.model";
 export class AuthState {
-  readonly isLoggedIn;
+  readonly isLoggedIn: boolean;
   readonly user: User;
   private constructor(isLoggedIn = false, user: User = User.createDummyUser()) {
     this.isLoggedIn = isLoggedIn;
@@ -9,7 +9,7 @@ export class AuthState {
   public static createDefaultState() {
     return new AuthState();
   }
-  public static createNewState(isLoggedIn = false): AuthState {
-    return new AuthState(isLoggedIn, User.createDummyUser("" + Date.now()));
+  public static createNewState(isLoggedIn = false, user: User = User.createDummyUser()): AuthState {
+    return new AuthState(isLoggedIn, user);
   }
 }

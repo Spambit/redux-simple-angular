@@ -4,5 +4,6 @@
   <br>
   <p>YTube is the most popular framework for managing your youtube videos.
     <p>
-      <button type='button' class='btn btn-primary' (click) = 'login($event)'>Start now</button>
+      <button *ngIf='!(login$ | async)' type='button' class='btn btn-primary' (click) = 'login($event)'>Log In to Google</button>
+      <button *ngIf='(login$ | async)' type='button' class='btn btn-primary' (click) = 'logout($event)'>Log out from Google</button>
 </div>

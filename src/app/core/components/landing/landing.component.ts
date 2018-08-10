@@ -1,5 +1,7 @@
-import { LoginService } from "~/app/core/services/google/login.service";
-import { Component } from "@angular/core";
+import * as fromStore from "@store/index";
+import { Component, OnInit } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
 
 @Component({
   moduleId: module.id,
@@ -7,9 +9,16 @@ import { Component } from "@angular/core";
   templateUrl: "landing.component.html",
   styleUrls: ["landing.component.scss"]
 })
-export class LandingComponent {
-  constructor(private _loginService: LoginService) {}
+export class LandingComponent implements OnInit {
+  login$: Observable<boolean>;
+  constructor(private store: Store<fromStore.AppState>) {}
+  ngOnInit() {
+    this.login$ = this.store.select(fromStore.selectLoginState);
+  }
   login() {
-    this._loginService.login();
+    this.store.dispatch(new fromStore.LoginAction());
+  }
+  logout() {
+    this.store.dispatch(new fromStore.LogoutAction());
   }
 }

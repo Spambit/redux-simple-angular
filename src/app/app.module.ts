@@ -1,4 +1,4 @@
-import { ApplicationStore } from "./store";
+import { StoreModuleWithProvider } from "./store";
 import { RouterModule } from "@angular/router";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
@@ -14,7 +14,7 @@ import { AppComponent } from "~/app/app.component";
     ...APP_CONTAINER_MODULES,
     RouterModule.forRoot(ROUTES, { useHash: true, enableTracing: true }),
     SharedModules,
-    ApplicationStore.moduleWithProviders
+    StoreModuleWithProvider
   ],
   providers: [],
   bootstrap: [AppComponent]

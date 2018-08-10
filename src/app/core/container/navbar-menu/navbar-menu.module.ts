@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 
 // This Module's Components
-import { NavbarMenuComponent } from './navbar-menu.component';
+import { NavbarMenuComponent } from '~/app/core/container/navbar-menu/navbar-menu.component';
 
 @NgModule({
     imports: [

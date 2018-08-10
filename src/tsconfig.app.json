@@ -6,7 +6,8 @@
     "module": "es2015",
     "paths": {
       "~/*": ["./*"],
-      "@shared/*": ["./app/shared/*"]
+      "@shared/*": ["./app/shared/*"],
+      "@store/*" : ["./app/store"],
     }
   },
   "exclude": [

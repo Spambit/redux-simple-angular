@@ -1,12 +1,10 @@
 import { AuthState } from "./../models/auth.model";
-import {
-  AuthActionsUnion,
-  AuthActionType
-} from "~/app/store/actions/auth.actions";
+import { AuthActionsUnion, AuthActionType } from "../actions/auth.actions";
 export function reducer(
   state: AuthState = AuthState.createDefaultState(),
   action: AuthActionsUnion
 ): AuthState {
+  const payload = action.payload;
   switch (action.type) {
     case AuthActionType.LOGIN:
       return AuthState.createNewState(true);

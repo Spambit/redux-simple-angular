@@ -1,10 +1,10 @@
-import { NavbarSearchModule } from '../navbar-search/navbar-search.module';
+import { NavbarSearchModule } from '~/app/core/container/navbar-search/navbar-search.module';
 // Angular Imports
 import { NgModule } from '@angular/core';
 
 // This Module's Components
-import { SidebarComponent } from './sidebar.component';
-import { UserModule } from '../user/user.module';
+import { SidebarComponent } from '~/app/core/container/sidebar/sidebar.component';
+import { UserModule } from '~/app/core/container/user/user.module';
 
 @NgModule({
     imports: [

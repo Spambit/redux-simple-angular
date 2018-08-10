@@ -1,4 +1,4 @@
-import { SharedModules } from '../../../shared';
+import { SharedModules } from '~/app/shared';
 // Angular Imports
 import { NgModule } from '@angular/core';
 

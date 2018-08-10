@@ -1,4 +1,4 @@
-import { Animations } from "@shared/animations";
+import { Animations } from "~/app/shared/animations";
 import { Component } from "@angular/core";
 
 @Component({
