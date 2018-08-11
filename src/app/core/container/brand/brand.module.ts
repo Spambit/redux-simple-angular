@@ -1,20 +1,13 @@
-import { SharedModules } from '~/app/shared';
+import { SharedModules } from "~/app/shared";
 // Angular Imports
-import { NgModule } from '@angular/core';
+import { NgModule } from "@angular/core";
 
 // This Module's Components
-import { BrandComponent } from './brand.component';
+import { BrandComponent } from "./brand.component";
 
 @NgModule({
-    imports: [
-      SharedModules
-    ],
-    declarations: [
-        BrandComponent,
-    ],
-    exports: [
-        BrandComponent,
-    ]
+  imports: [SharedModules],
+  declarations: [BrandComponent],
+  exports: [BrandComponent]
 })
-export class BrandModule {
-}
+export class BrandModule {}
