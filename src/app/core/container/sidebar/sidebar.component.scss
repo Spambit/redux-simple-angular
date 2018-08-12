@@ -22,10 +22,10 @@
   $sidebar-overlay-z-index: 99;
   overflow-x: hidden;
   background: #1d1d1d;
-  &.hide {
+  .hide {
     display: none;
   }
-  &.show {
+  .show {
     display: block;
   }
 

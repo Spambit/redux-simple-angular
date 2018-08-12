@@ -4,6 +4,5 @@ export function reducer(
   state: SidebarLayoutState = SidebarLayoutState.didClose,
   action: SidebarActionsUnion
 ): SidebarLayoutState {
-  // TODO:
-  return state;
+    return action.payload;
 }

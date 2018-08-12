@@ -1,7 +1,7 @@
-import { SidebarLayoutState } from "@container/brand/brand.model";
+import { SidebarLayoutState } from "./../../core/container/brand/brand.model";
 
 export class LayoutState {
-  constructor(public sidebarState: SidebarLayoutState = SidebarLayoutState.didClose) {
+  constructor(readonly sidebarState: SidebarLayoutState = SidebarLayoutState.didClose) {
   }
   static createDefaultState(): LayoutState {
     return new LayoutState();
