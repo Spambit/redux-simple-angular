@@ -5,6 +5,7 @@ import { Animations } from "~/app/shared/animations";
   moduleId: module.id,
   selector: "yt-sidebar",
   templateUrl: "sidebar.component.html",
-  styleUrls: ["sidebar.component.scss", "sidebar.component.nightmode.scss"]
+  styleUrls: ["sidebar.component.scss", "sidebar.component.nightmode.scss"],
+  animations: [Animations.slideLeftAnimation, Animations.OverlayAnimation]
 })
 export class SidebarComponent {}

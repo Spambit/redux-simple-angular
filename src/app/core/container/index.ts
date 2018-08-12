@@ -1,17 +1,16 @@
-import { BrandModule } from '~/app/core/container/brand/brand.module';
-import { NavbarSearchModule } from '~/app/core/container/navbar-search/navbar-search.module';
-import { NavbarModule } from '~/app/core/container/navbar/navbar.module';
-import { NavbarMenuModule } from '~/app/core/container/navbar-menu/navbar-menu.module';
-import { UserModule } from '~/app/core/container/user/user.module';
-import { SidebarModule } from '~/app/core/container/sidebar/sidebar.module';
+import { SidebarMenuModule } from "./sidebar-menu/sidebar-menu.module";
+import { BrandModule } from "./brand/brand.module";
+import { NavbarSearchModule } from "./navbar-search/navbar-search.module";
+import { NavbarModule } from "./navbar/navbar.module";
+import { UserModule } from "./user/user.module";
+import { SidebarModule } from "./sidebar/sidebar.module";
 
 export const APP_CONTAINER_MODULES = [
   UserModule,
   SidebarModule,
-  NavbarMenuModule,
+  SidebarMenuModule,
   NavbarModule,
   NavbarSearchModule,
   BrandModule,
-  SidebarModule,
+  SidebarModule
 ];
-

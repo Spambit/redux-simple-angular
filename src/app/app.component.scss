@@ -1,11 +1,10 @@
 :host {
   $sm-device-gap-top: 90px;
   $lg-device-gap-top: 56px;
+  $yt-main-z-index: 99;
   $sidebar-z-index: 100;
-  $sidebar-overlay-z-index: 99;
-  $yt-main-z-index: 98;
 
-  .yt-sidebar-container {
+  .yt-page-container {
     font-size: 1rem;
     width: 100vw;
     display: grid;
@@ -13,54 +12,34 @@
     grid-auto-rows: minmax(1em, auto);
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1;
-    .sidebar-container-item {
-      &.sidebar {
-        grid-row: 1;
-        grid-column: 1/4;
-        z-index: #{$sidebar-z-index};
-      }
-      &.overlay {
-        grid-row: 1;
-        grid-column: 1/13;
-        background: #292828;
-        z-index: #{$sidebar-overlay-z-index};
-        &.hide {
-          display: none;
-        }
-        &.show {
-          display: block;
-        }
-      }
-      &.main {
-        grid-row: 1;
-        grid-column: 1/13;
-        background: #3d3c3c;
-        z-index: #{$yt-main-z-index};
-        padding: 10px;
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: repeat(12, 1fr);
-        grid-gap: 5px;
-        overflow: scroll;
-      }
+    .sidebar {
+      grid-row: 1;
+      grid-column: 1/13;
+      z-index: #{$sidebar-z-index};
+    }
+    .main {
+      grid-row: 1;
+      grid-column: 1/13;
+      background: #3d3c3c;
+      z-index: #{$yt-main-z-index};
+      padding: 10px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(12, 1fr);
+      grid-gap: 5px;
+      overflow: scroll;
     }
   }
 
   @media screen and (max-width: 768px) {
-    .yt-sidebar-container {
+    .yt-page-container {
       top: $sm-device-gap-top !important;
       height: calc(100vh - #{$sm-device-gap-top}) !important;
-      .sidebar-container-item {
-        &.sidebar {
-          grid-row: 1;
-          grid-column: 1/8;
-        }
-      }
     }
   }
 
   @media screen and (min-width: 769px) {
-    .yt-sidebar-container {
+    .yt-page-container {
       top: $lg-device-gap-top !important;
       height: calc(100vh - #{$lg-device-gap-top}) !important;
     }

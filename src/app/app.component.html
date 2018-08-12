@@ -1,9 +1,7 @@
 <yt-navbar (sidebarTogglerStateChange)='onSidebarTogglerStateChange($event)'></yt-navbar>
-<div class="chiller-theme yt-sidebar-container">
-  <yt-sidebar class="sidebar-container-item sidebar" [@slideLeft]='sideBarState' (@slideLeft.start)='sidebarSlideDidStart($event)'
-    (@slideLeft.done)='sidebarSlideDidEnd($event)'></yt-sidebar>
-  <div class="sidebar-container-item overlay" [class.show]='sidebarWillAppear' [class.hide]='sidebarDidDisappear' [@overlay]='overlayState'></div>
-  <div class='sidebar-container-item main'>
+<div class="chiller-theme yt-page-container">
+  <yt-sidebar class='sidebar'></yt-sidebar>
+  <div class='main'>
     <router-outlet></router-outlet>
   </div>
 </div>
