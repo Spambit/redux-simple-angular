@@ -1,9 +1,8 @@
-<!--component html goes here -->
 <div class="jumbotron test">
   <h1>Manage Your Youtube</h1>
   <br>
   <p>YTube is the most popular framework for managing your youtube videos.
     <p>
-      <button *ngIf='!(login$ | async)' type='button' class='btn btn-primary' (click) = 'login($event)'>Log In to Google</button>
-      <button *ngIf='(login$ | async)' type='button' class='btn btn-primary' (click) = 'logout($event)'>Log out from Google</button>
+      <button *ngIf='!(login$ | async)' type='button' class='btn btn-primary' (click)='login($event)'>Log In to Google</button>
+      <button *ngIf='(login$ | async)' type='button' class='btn btn-primary' (click)='logout($event)'>Log out from Google</button>
 </div>

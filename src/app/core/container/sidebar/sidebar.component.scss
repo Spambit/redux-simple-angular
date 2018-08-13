@@ -1,12 +1,11 @@
-// component css goes here
-@mixin tablet {
-  @media (min-width: 768px) and (max-width: 1024px) {
+@mixin desktop {
+  @media (min-width: 1024px) {
     @content;
   }
 }
 
-@mixin desktop {
-  @media (min-width: 1024px) {
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1023px) {
     @content;
   }
 }
@@ -23,26 +22,18 @@
   overflow-x: hidden;
   background: #1d1d1d;
   .hide {
-    display: none;
-  }
-  .show {
-    display: block;
+    display: none !important;
   }
 
   .sidebar-container {
     display: grid;
-    width: 100vw;
+    width: auto;
     height: 100%;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 1;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     background: lightgray;
 
     .sidebar {
-      grid-row: 1;
-      grid-column: 1/5;
-      @include mobile {
-        grid-column: 1/9;
-      }
       z-index: #{$sidebar-z-index};
       display: grid;
       grid-template-rows: repeat(12, 1fr);
@@ -60,13 +51,6 @@
         border-top: 1px solid #2b2b2b;
         border-bottom: 1px solid #2b2b2b;
       }
-    }
-
-    .overlay {
-      grid-row: 1;
-      grid-column: 1/13;
-      z-index: #{$sidebar-overlay-z-index};
-      background: #292828 !important; //TODO - fix important bug
     }
   }
 }

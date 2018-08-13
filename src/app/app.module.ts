@@ -4,7 +4,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { SharedModules } from "~/app/shared";
 import { ROUTES } from "~/app/core/routers";
-import { APP_CONTAINER_MODULES } from "~/app/core/container";
+import { APP_CONTAINER_MODULES } from "@container/index";
 import { AppComponent } from "~/app/app.component";
 
 @NgModule({

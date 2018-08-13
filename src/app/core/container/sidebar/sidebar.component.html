@@ -1,10 +1,12 @@
 <div class='chiller-theme sidebar-container'>
-  <div class="sidebar" [@slideLeft]='sideBarState' (@slideLeft.start)='sidebarSlideDidStart($event)' (@slideLeft.done)='sidebarSlideDidEnd($event)'>
+  <div class="sidebar" [@slideLeft]='sideBarState'
+  (@slideLeft.start)='sidebarSlideDidStart($event)'
+  (@slideLeft.done)='sidebarSlideDidEnd($event)'>
     <div class='header'>
       <yt-user></yt-user>
     </div>
     <yt-search-bar class="search"></yt-search-bar>
     <yt-sidebar-menu class="menu"></yt-sidebar-menu>
   </div>
-  <div class="overlay" [class.show]='sidebarWillAppear' [class.hide]='sidebarDidDisappear' [@overlay]='overlayState'></div>
+  <!-- <div class="overlay" [class.show]='sidebarWillAppear' [class.hide]='sidebarDidDisappear' [@overlay]='overlayState'></div> -->
 </div>

@@ -1,10 +1,11 @@
-import { LayoutState } from "./layout.model";
+import * as fromLayout from "./layout.model";
 import { AuthState } from "./auth.model";
 import { createSelector } from "@ngrx/store";
 
+export * from "./layout.model";
 export interface AppState {
   auth: AuthState;
-  layout: LayoutState;
+  layout: fromLayout.LayoutState;
 }
 
 export const selectAuthState = (state: AppState) => state.auth;
@@ -17,12 +18,12 @@ export const selectLoginState = createSelector(
 );
 export const selectSidebarState = createSelector(
   selectLayoutState,
-  (state: LayoutState) => {
+  (state: fromLayout.LayoutState) => {
     return state.sidebarState;
   }
 );
 
 export const defaultAppState: AppState = {
   auth: AuthState.createDefaultState(),
-  layout: LayoutState.createDefaultState()
+  layout: fromLayout.LayoutState.createDefaultState()
 };

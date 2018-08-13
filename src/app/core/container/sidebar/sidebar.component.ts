@@ -1,8 +1,8 @@
 import { SidebarLayoutState } from "../brand/brand.model";
 import { Subscription } from "rxjs";
-import * as fromStore from "./../../../store";
+import * as fromStore from "@store/index";
 import { Store } from "@ngrx/store";
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Component, OnInit, OnDestroy, HostBinding } from "@angular/core";
 import { Animations } from "@shared/animations";
 
 @Component({
@@ -10,9 +10,17 @@ import { Animations } from "@shared/animations";
   selector: "yt-sidebar",
   templateUrl: "sidebar.component.html",
   styleUrls: ["sidebar.component.scss", "sidebar.component.nightmode.scss"],
-  animations: [Animations.slideLeftAnimation, Animations.OverlayAnimation]
+  animations: [
+    Animations.slideLeftAnimation,
+    Animations.OverlayAnimation,
+    Animations.fadeInFadeOutAnimation
+  ],
+  host: {
+    "[class.show]": "sidebarShouldAppear",
+    "[class.hide]": "sidebarDidDisappear"
+  }
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit, OnDestroy {
   private stateChangeSubscription: Subscription;
   sidebarWillAppear = false;
   sidebarWillDisappear = false;
@@ -21,6 +29,11 @@ export class SidebarComponent implements OnInit {
   sidebarShouldAppear = false;
   sidebarShouldDisappear = false;
   constructor(private store: Store<fromStore.AppState>) {}
+
+  // @HostBinding("@fadeInFadeOut")
+  // get fadeInFadeOut() {
+  //   return this.sidebarShouldAppear ? "in" : "out";
+  // }
 
   ngOnInit() {
     this.stateChangeSubscription = this.store
@@ -54,9 +67,6 @@ export class SidebarComponent implements OnInit {
   get sideBarState() {
     return this.sidebarShouldAppear ? "appear" : "disappear";
   }
-  get overlayState() {
-    return this.sidebarShouldAppear ? "in" : "out";
-  }
 
   sidebarSlideDidStart($event) {
     this.sidebarWillAppear = $event.toState === "appear";
@@ -78,7 +88,7 @@ export class SidebarComponent implements OnInit {
     }
   }
 
-  OnDestroy() {
+  ngOnDestroy() {
     if (!this.stateChangeSubscription.closed) {
       this.stateChangeSubscription.unsubscribe();
     }

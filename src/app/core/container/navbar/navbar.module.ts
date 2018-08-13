@@ -5,8 +5,8 @@ import { NavbarSearchModule } from "../navbar-search/navbar-search.module";
 import { NgModule } from "@angular/core";
 
 // This Module's Components
-import { NavbarComponent } from "~/app/core/container/navbar/navbar.component";
-import { UserModule } from "~/app/core/container/user/user.module";
+import { NavbarComponent } from "@container/navbar/navbar.component";
+import { UserModule } from "@container/user/user.module";
 
 @NgModule({
   imports: [

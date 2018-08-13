@@ -8,7 +8,8 @@
       "~/*": ["./*"],
       "@shared/*": ["./app/shared/*"],
       "@store/*" : ["./app/store/*"],
-      "@container/*": ["./app/core/container/*"]
+      "@container/*": ["./app/core/container/*"],
+      "@components/*" : ["./app/core/components/*"]
     }
   },
   "exclude": [

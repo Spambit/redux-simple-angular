@@ -1,1 +1,1 @@
-export * from "../../core/container/brand/brand.actions";
+export * from "@container/brand/brand.actions";

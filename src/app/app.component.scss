@@ -1,7 +1,30 @@
 :host {
+  @mixin desktop {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  }
+
+  @mixin tablet {
+    @media (min-width: 768px) and (max-width: 1023px) {
+      @content;
+    }
+  }
+
+  @mixin mobile {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+
+  .hide {
+    display: none !important;
+  }
+
   $sm-device-gap-top: 90px;
   $lg-device-gap-top: 56px;
-  $yt-main-z-index: 99;
+  $yt-main-z-index: 98;
+  $sidebar-overlay-z-index: 99;
   $sidebar-z-index: 100;
 
   .yt-page-container {
@@ -14,7 +37,14 @@
     grid-template-rows: 1;
     .sidebar {
       grid-row: 1;
-      grid-column: 1/13;
+      grid-column: 1/4;
+      @include mobile {
+        grid-column: 1/9;
+      }
+
+      @include tablet {
+        grid-column: 1/6;
+      }
       z-index: #{$sidebar-z-index};
     }
     .main {
@@ -28,6 +58,13 @@
       grid-template-rows: repeat(12, 1fr);
       grid-gap: 5px;
       overflow: scroll;
+    }
+
+    .overlay {
+      grid-row: 1;
+      grid-column: 1/13;
+      z-index: #{$sidebar-overlay-z-index};
+      background: #292828 !important; //TODO - fix important bug
     }
   }
 
