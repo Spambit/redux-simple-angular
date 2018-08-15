@@ -20,7 +20,7 @@
   $sidebar-z-index: 100;
   $sidebar-overlay-z-index: 99;
   overflow-x: hidden;
-  background: #1d1d1d;
+  background: rgba(0, 0, 0, 0);
   .hide {
     display: none !important;
   }
@@ -31,7 +31,7 @@
     height: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    background: lightgray;
+    background: rgba(0, 0, 0, 0) !important;
 
     .sidebar {
       z-index: #{$sidebar-z-index};
@@ -42,6 +42,7 @@
       overflow-y: scroll;
       align-items: center;
       grid-gap: 10px;
+      background: #1d1d1d !important; //must fix all !important bugs
       .header {
         grid-row: 1/2;
       }

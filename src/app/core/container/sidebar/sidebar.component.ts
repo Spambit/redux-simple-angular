@@ -15,10 +15,10 @@ import { Animations } from "@shared/animations";
     Animations.OverlayAnimation,
     Animations.fadeInFadeOutAnimation
   ],
-  host: {
-    "[class.show]": "sidebarShouldAppear",
-    "[class.hide]": "sidebarDidDisappear"
-  }
+  // host: {
+  //   "[class.show]": "sidebarShouldAppear",
+  //   "[class.hide]": "sidebarDidDisappear"
+  // }
 })
 export class SidebarComponent implements OnInit, OnDestroy {
   private stateChangeSubscription: Subscription;

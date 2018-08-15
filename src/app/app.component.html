@@ -1,7 +1,8 @@
 <yt-navbar></yt-navbar>
 <div class="chiller-theme yt-page-container">
-  <yt-sidebar class='sidebar'></yt-sidebar>
-  <div class="overlay" *ngIf='sidebarOpened' @overlayFadeInFadeOut></div>
+  <yt-sidebar class='sidebar' *ngIf='isSidebarAlive' [@fadeInFadeOut]="{params : {duration: '4000ms'}}">
+  </yt-sidebar>
+  <div class="overlay" *ngIf='isSidebarAlive' @overlayFadeInFadeOut></div>
   <div class='main'>
     <router-outlet></router-outlet>
   </div>

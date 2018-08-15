@@ -40,18 +40,18 @@ const overlayFadeInfadeOut = trigger("overlayFadeInFadeOut", [
 
 const fadeInFadeOut = trigger("fadeInFadeOut", [
   state(
-    "in",
-    style({
-      opacity: 1
-    })
-  ),
-  state(
-    "out",
+    "void",
     style({
       opacity: 0
     })
   ),
-  transition("in <=> out", animate("200ms"))
+  state(
+    "*",
+    style({
+      opacity: 1
+    })
+  ),
+  transition("void <=> *", [animate("{{duration}}")], {params : { duration: "200ms" }})
 ]);
 
 const overlay = trigger("overlay", [
