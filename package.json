@@ -45,6 +45,7 @@
     "@angular/language-service": "6.0.9",
     "@ngrx/effects": "^6.1.0",
     "@ngrx/router-store": "^6.1.0",
+    "@ngrx/store-devtools": "^6.1.0",
     "@types/gapi.auth2": "0.0.47",
     "@types/gapi.youtube": "^3.0.34",
     "@types/jasmine": "~2.8.3",

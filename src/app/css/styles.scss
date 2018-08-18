@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import "./app/theme.css";
-@import "./app/shared/styles/scrollbar.scss";
-@import "./app/shared/styles/bootstrap-modified.scss";
+@import "./theme.css";
+@import "./theme/index.scss";
+@import "./shared/scrollbar.scss";
+@import "./shared/bootstrap-modified.scss";
 
 body, html {
   height: 100%;

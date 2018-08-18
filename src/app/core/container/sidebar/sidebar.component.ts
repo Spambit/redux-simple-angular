@@ -14,7 +14,7 @@ import { Animations } from "@shared/animations";
     Animations.slideLeftAnimation,
     Animations.OverlayAnimation,
     Animations.fadeInFadeOutAnimation
-  ],
+  ]
   // host: {
   //   "[class.show]": "sidebarShouldAppear",
   //   "[class.hide]": "sidebarDidDisappear"
@@ -69,6 +69,9 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   sidebarSlideDidStart($event) {
+    if (this.sidebarWillDisappear) {
+      return;
+    }
     this.sidebarWillAppear = $event.toState === "appear";
     this.sidebarWillDisappear = $event.toState === "disappear";
     if (this.sidebarWillAppear) {
@@ -79,6 +82,10 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   sidebarSlideDidEnd($event) {
+    // TODO - Why animations callbacks are called twice ?
+    if (this.sidebarDidDisappear) {
+      return;
+    }
     this.sidebarDidDisappear = $event.toState === "disappear";
     this.sidebarDidAppear = $event.toState === "appear";
     if (this.sidebarDidAppear) {

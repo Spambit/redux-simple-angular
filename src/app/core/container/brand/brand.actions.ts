@@ -1,3 +1,4 @@
+import { YTubeActions } from '@store/actions/ytube-actions';
 import { SidebarLayoutState } from "./brand.model";
 import { Action } from "@ngrx/store";
 
@@ -10,34 +11,34 @@ export enum SidebarTogglerActionType {
   DidOpen = "[Sidebar] did open"
 }
 
-export class SidebarShouldOpenAction implements Action {
+export class SidebarShouldOpenAction implements YTubeActions {
   readonly type: string = SidebarTogglerActionType.ShouldOpen;
-  payload = SidebarLayoutState.shouldOpen;
+  readonly payload = SidebarLayoutState.shouldOpen;
 }
 
-export class SidebarShouldCloseAction implements Action {
+export class SidebarShouldCloseAction implements YTubeActions {
   readonly type: string = SidebarTogglerActionType.ShouldClose;
-  payload = SidebarLayoutState.shouldClose;
+  readonly payload = SidebarLayoutState.shouldClose;
 }
 
-export class SidebarWillOpenAction implements Action {
+export class SidebarWillOpenAction implements YTubeActions {
   readonly type: string = SidebarTogglerActionType.WillOpen;
-  payload = SidebarLayoutState.willOpen;
+  readonly payload = SidebarLayoutState.willOpen;
 }
 
-export class SidebarWillCloseAction implements Action {
+export class SidebarWillCloseAction implements YTubeActions {
   readonly type: string = SidebarTogglerActionType.WillClose;
-  payload = SidebarLayoutState.willClose;
+  readonly payload = SidebarLayoutState.willClose;
 }
 
-export class SidebarDidOpenAction implements Action {
+export class SidebarDidOpenAction implements YTubeActions {
   readonly type: string = SidebarTogglerActionType.DidOpen;
-  payload = SidebarLayoutState.didOpen;
+  readonly payload = SidebarLayoutState.didOpen;
 }
 
-export class SidebarDidCloseAction implements Action {
+export class SidebarDidCloseAction implements YTubeActions {
   readonly type: string = SidebarTogglerActionType.DidClose;
-  payload = SidebarLayoutState.didClose;
+  readonly payload = SidebarLayoutState.didClose;
 }
 
 export type SidebarActionsUnion =

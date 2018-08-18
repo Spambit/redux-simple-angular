@@ -4,13 +4,15 @@ export function reducer(
   state: AuthState = AuthState.createDefaultState(),
   action: AuthActionsUnion
 ): AuthState {
-  const payload = action.payload;
+  const payload: AuthState = action.payload;
   switch (action.type) {
-    case AuthActionType.LOGIN:
-      return AuthState.createNewState(true);
-    case AuthActionType.LOGOUT:
-      return AuthState.createNewState(false);
+    case AuthActionType.LOGINNG_IN:
+    case AuthActionType.LOGGED_IN:
+    case AuthActionType.LOGGED_OUT:
+    case AuthActionType.LOGINNG_OUT: // TODO - implement
+    case AuthActionType.ERROR:
+      return {...state, ...payload};
     default:
-      return AuthState.createDefaultState();
+      return state;
   }
 }

@@ -1,11 +1,11 @@
 import { Injectable, OnInit } from "@angular/core";
 import { environment } from "~/environments/environment";
+import { Observable, Subject, BehaviorSubject } from "rxjs";
 
 @Injectable()
 export class LoginService {
-  $loginStatus
+  private login$: BehaviorSubject<boolean> = new BehaviorSubject(false);
   private googleAuth: any;
-  private isLoggedIn: boolean;
   constructor() {
     this.loadGoogleApi();
   }
@@ -34,7 +34,7 @@ export class LoginService {
   }
 
   private updateSigninStatus(isLoggedIn: boolean) {
-    this.isLoggedIn = isLoggedIn;
+    this.login$.next(isLoggedIn);
   }
 
   private loadGoogleApi() {
@@ -46,14 +46,19 @@ export class LoginService {
   }
 
   private googleApiDidLoad() {
-    gapi.load("client:auth2", () => this.initClient());
+    gapi.load("client:auth2", () => {
+      this.initClient().catch((e) => {
+        this.login$.error(e);
+      });
+    });
   }
 
-  public login() {
-    if (this.isLoggedIn) {
-      this.googleAuth.signOut();
-    } else {
-      this.googleAuth.signIn();
-    }
+  public login(): Observable<boolean> {
+    this.googleAuth.signIn();
+    return this.login$; // TODO - check its deferness later - if signIn immediately emits next.
+  }
+  public logout(): Observable<boolean> {
+    this.googleAuth.signOut();
+    return this.login$;
   }
 }
