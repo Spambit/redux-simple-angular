@@ -1,4 +1,4 @@
-import { AuthState } from './../models/auth.model';
+import { AuthState } from "./../models/auth.model";
 import { YTubeActions } from "@store/actions/ytube-actions";
 import { LoginService } from "~/app/core/services/google/login.service";
 import { Observable, of } from "rxjs";
@@ -10,26 +10,52 @@ import { map, mapTo, tap, switchMap, catchError } from "rxjs/operators";
 @Injectable()
 export class AuthEffects {
   constructor(private loginService: LoginService, private actions$: Actions) {}
+
   @Effect()
-  loginAction$: Observable<YTubeActions> = this.actions$.pipe<YTubeActions>(
+  loggingInAction$: Observable<YTubeActions> = this.actions$.pipe<YTubeActions>(
     ofType(fromActions.AuthActionType.LOGIN),
-    mapTo({ type: fromActions.AuthActionType.LOGINNG_IN }),
-    switchMap(_ => this.loginService.login()),
+    switchMap(_ => {
+      return this.loginService.login();
+    }),
     map(isSuccess => {
       if (isSuccess) {
         return {
           type: fromActions.AuthActionType.LOGGED_IN,
           payload: AuthState.createNewState()
         };
-      } else {
-        return {
-          type: fromActions.AuthActionType.ERROR,
-          payload: AuthState.createWithError(`Could not login. Check your internet connectivity.`)
-        };
       }
+
+      return {
+        type: fromActions.AuthActionType.LOGINNG_IN
+      };
+
     }),
     catchError(err =>
-      of({ type: fromActions.AuthActionType.ERROR, payload: err })
+      of({ type: fromActions.AuthActionType.ERROR, payload: AuthState.createWithError(err) })
     )
   );
+
+  @Effect()
+  logOutAction$: Observable<YTubeActions> = this.actions$.pipe<YTubeActions>(
+    ofType(fromActions.AuthActionType.LOGOUT),
+    switchMap(_ => {
+      return this.loginService.logout();
+    }),
+    map(isSuccess => {
+      if (isSuccess) {
+        return {
+          type: fromActions.AuthActionType.LOGGED_OUT,
+        };
+      }
+
+      return {
+        type: fromActions.AuthActionType.LOGINNG_OUT,
+      };
+
+    }),
+    catchError(err =>
+      of({ type: fromActions.AuthActionType.ERROR, payload: AuthState.createWithError(err) })
+    )
+  );
+
 }

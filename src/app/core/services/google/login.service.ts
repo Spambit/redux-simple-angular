@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from "@angular/core";
 import { environment } from "~/environments/environment";
-import { Observable, Subject, BehaviorSubject } from "rxjs";
+import { Observable, BehaviorSubject } from "rxjs";
 
 @Injectable()
 export class LoginService {
@@ -54,11 +54,11 @@ export class LoginService {
   }
 
   public login(): Observable<boolean> {
-    this.googleAuth.signIn();
+    this.googleAuth.signIn().catch(e => this.login$.error(e));
     return this.login$; // TODO - check its deferness later - if signIn immediately emits next.
   }
   public logout(): Observable<boolean> {
-    this.googleAuth.signOut();
+    this.googleAuth.signOut().catch(e => this.login$.error(e));
     return this.login$;
   }
 }
