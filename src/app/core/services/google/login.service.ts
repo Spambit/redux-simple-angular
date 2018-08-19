@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { Injectable, OnInit } from "@angular/core";
 import { environment } from "~/environments/environment";
 import { Observable, BehaviorSubject } from "rxjs";
@@ -6,7 +7,7 @@ import { Observable, BehaviorSubject } from "rxjs";
 export class LoginService {
   private login$: BehaviorSubject<boolean> = new BehaviorSubject(false);
   private googleAuth: any;
-  constructor() {
+  constructor(private http: Http) {
     this.loadGoogleApi();
   }
 
@@ -47,7 +48,7 @@ export class LoginService {
 
   private googleApiDidLoad() {
     gapi.load("client:auth2", () => {
-      this.initClient().catch((e) => {
+      this.initClient().catch(e => {
         this.login$.error(e);
       });
     });

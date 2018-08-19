@@ -1,3 +1,3 @@
-import { LoginService } from "~/app/core/services/google/login.service";
-
+import { LoginService } from "./google/login.service";
 export const CORE_SERVICES = [LoginService];
+export * from "./interceptors";

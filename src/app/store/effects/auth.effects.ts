@@ -5,7 +5,7 @@ import { Observable, of } from "rxjs";
 import { Injectable } from "@angular/core";
 import { Effect, Actions, ofType } from "@ngrx/effects";
 import * as fromActions from "../actions";
-import { map, mapTo, tap, switchMap, catchError } from "rxjs/operators";
+import { map, mapTo, filter, tap, switchMap, catchError } from "rxjs/operators";
 
 @Injectable()
 export class AuthEffects {
@@ -13,7 +13,8 @@ export class AuthEffects {
 
   @Effect()
   loggingInAction$: Observable<YTubeActions> = this.actions$.pipe<YTubeActions>(
-    ofType(fromActions.AuthActionType.LOGIN),
+    tap((action) => console.log(`AuthEffect Received ${action.type} but may filter it out.`)),
+    filter((action) => action.type === fromActions.AuthActionType.LOGIN),
     switchMap(_ => {
       return this.loginService.login();
     }),
@@ -30,9 +31,12 @@ export class AuthEffects {
       };
 
     }),
-    catchError(err =>
-      of({ type: fromActions.AuthActionType.ERROR, payload: AuthState.createWithError(err) })
-    )
+    catchError(err => {
+      return of({
+        type: fromActions.AuthActionType.ERROR,
+        payload: AuthState.createWithError(err)
+      });
+    })
   );
 
   @Effect()

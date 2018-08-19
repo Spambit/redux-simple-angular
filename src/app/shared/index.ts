@@ -10,6 +10,7 @@ import { AngularFontAwesomeModule } from "angular-font-awesome";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { CORE_SERVICES } from "~/app/core/services";
+import * as fromInterceptors from "../core/services/interceptors";
 
 @NgModule({
   imports: [CommonModule, BrowserModule, BrowserAnimationsModule],
@@ -24,7 +25,8 @@ import { CORE_SERVICES } from "~/app/core/services";
     AngularFontAwesomeModule,
     BsDropdownModule,
     NgbModule,
-    ...CORE_COMPONENTS
+    ...CORE_COMPONENTS,
+    fromInterceptors.InterceptorModule
   ],
   providers: [...CORE_SERVICES]
 })

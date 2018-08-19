@@ -8,11 +8,13 @@ import { ROUTES } from "~/app/core/routers";
 import { APP_CONTAINER_MODULES } from "@container/index";
 import { AppComponent } from "~/app/app.component";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { HttpModule } from "@angular/http";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    HttpModule,
     ...APP_CONTAINER_MODULES,
     RouterModule.forRoot(ROUTES, { useHash: true, enableTracing: true }),
     SharedModules,
