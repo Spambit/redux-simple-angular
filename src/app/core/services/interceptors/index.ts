@@ -1,6 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from "@angular/core";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
-import { TimeoutInterceptor, defaultTimeout, DEFAULT_TIMEOUT} from './timeout.interceptor';
+import {
+  TimeoutInterceptor,
+  defaultTimeout,
+  DEFAULT_TIMEOUT
+} from "./timeout.interceptor";
 
 @NgModule({
   imports: [],
@@ -8,6 +12,7 @@ import { TimeoutInterceptor, defaultTimeout, DEFAULT_TIMEOUT} from './timeout.in
   declarations: [],
   providers: [
     [{ provide: HTTP_INTERCEPTORS, useClass: TimeoutInterceptor, multi: true }],
-    [{ provide: DEFAULT_TIMEOUT, useValue: defaultTimeout }],
+    [{ provide: DEFAULT_TIMEOUT, useValue: defaultTimeout }]
+  ]
 })
-export class InterceptorModule { }
+export class InterceptorModule {}

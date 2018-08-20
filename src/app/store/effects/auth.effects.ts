@@ -5,7 +5,14 @@ import { Observable, of } from "rxjs";
 import { Injectable } from "@angular/core";
 import { Effect, Actions, ofType } from "@ngrx/effects";
 import * as fromActions from "../actions";
-import { map, mapTo, filter, tap, switchMap, catchError } from "rxjs/operators";
+import {
+  map,
+  mergeMap,
+  filter,
+  tap,
+  switchMap,
+  catchError
+} from "rxjs/operators";
 
 @Injectable()
 export class AuthEffects {
@@ -13,30 +20,29 @@ export class AuthEffects {
 
   @Effect()
   loggingInAction$: Observable<YTubeActions> = this.actions$.pipe<YTubeActions>(
-    tap((action) => console.log(`AuthEffect Received ${action.type} but may filter it out.`)),
-    filter((action) => action.type === fromActions.AuthActionType.LOGIN),
-    switchMap(_ => {
-      return this.loginService.login();
-    }),
-    map(isSuccess => {
-      if (isSuccess) {
-        return {
-          type: fromActions.AuthActionType.LOGGED_IN,
-          payload: AuthState.createNewState()
-        };
-      }
+    ofType(fromActions.AuthActionType.LOGIN),
+    switchMap( action =>
+      this.loginService.login().pipe(
+        map(isSuccess => {
+          if (isSuccess) {
+            return {
+              type: fromActions.AuthActionType.LOGGED_IN,
+              payload: AuthState.createNewState()
+            };
+          }
 
-      return {
-        type: fromActions.AuthActionType.LOGINNG_IN
-      };
-
-    }),
-    catchError(err => {
-      return of({
-        type: fromActions.AuthActionType.ERROR,
-        payload: AuthState.createWithError(err)
-      });
-    })
+          return {
+            type: fromActions.AuthActionType.LOGINNG_IN
+          };
+        }),
+        catchError(err => {
+          return of({
+            type: fromActions.AuthActionType.ERROR,
+            payload: AuthState.createWithError(err)
+          });
+        })
+      )
+    )
   );
 
   @Effect()
@@ -48,18 +54,19 @@ export class AuthEffects {
     map(isSuccess => {
       if (isSuccess) {
         return {
-          type: fromActions.AuthActionType.LOGGED_OUT,
+          type: fromActions.AuthActionType.LOGGED_OUT
         };
       }
 
       return {
-        type: fromActions.AuthActionType.LOGINNG_OUT,
+        type: fromActions.AuthActionType.LOGINNG_OUT
       };
-
     }),
     catchError(err =>
-      of({ type: fromActions.AuthActionType.ERROR, payload: AuthState.createWithError(err) })
+      of({
+        type: fromActions.AuthActionType.ERROR,
+        payload: AuthState.createWithError(err)
+      })
     )
   );
-
 }

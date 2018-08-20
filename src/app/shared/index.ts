@@ -13,7 +13,11 @@ import { CORE_SERVICES } from "~/app/core/services";
 import * as fromInterceptors from "../core/services/interceptors";
 
 @NgModule({
-  imports: [CommonModule, BrowserModule, BrowserAnimationsModule],
+  imports: [CommonModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    fromInterceptors.InterceptorModule
+  ],
   declarations: [...CORE_COMPONENTS],
   exports: [
     MdbBootstrap,
@@ -26,7 +30,6 @@ import * as fromInterceptors from "../core/services/interceptors";
     BsDropdownModule,
     NgbModule,
     ...CORE_COMPONENTS,
-    fromInterceptors.InterceptorModule
   ],
   providers: [...CORE_SERVICES]
 })
