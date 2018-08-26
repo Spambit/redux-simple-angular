@@ -1,0 +1,63 @@
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+.hide {
+  display: none !important;
+}
+
+$sm-device-gap-top: 90px;
+$lg-device-gap-top: 56px;
+$yt-main-z-index: 98;
+$sidebar-overlay-z-index: 99;
+$sidebar-z-index: 100;
+$yt-max-z-index: 1000;
+
+$yt-dark-mania :  #292828;
+$yt-dark-fire: #1d1d1d;
+$yt-dark-almo: #1b1b1b;
+$yt-dark-smooth: #3d3c3c;
+$yt-dark-2d: #2d2d2d;
+$yt-dark-bed: #bdbdbd;
+$yt-dark-tobe: #2b2b2b;
+$yt-dark-freeze: #d6d0d0;
+$yt-dark-cristal: rgba(0, 0, 0, 0) ;
+$yt-dark-scrible: #6c7b88;
+$yt-dark-brick: #ee7e76;
+$yt-dark-shine: #afaaaa;
+$yt-dark-brick-shadow: #c24444;
+$yt-green-pees:  #5cb85c;
+$yt-yellow-bump: #e2d242;
+
+
+$yt-light-mania :  #faf6f6;
+$yt-light-fire: #fcf9f9;
+$yt-light-almo: #a7a3a3;
+$yt-light-smooth: #b9b0b0;
+$yt-light-2d: #d4cece;
+$yt-light-bed: #241818;
+$yt-light-tobe: #d1cccc;
+$yt-light-freeze: #1f1919;
+$yt-light-cristal: rgba(0, 0, 0, 0) ;
+$yt-light-scrible: #b1b6bb;
+$yt-light-brick: #ee7e76;
+$yt-light-shine: #6860b3;
+$yt-light-brick-shadow: #c24444;
+$yt-green-pees:  #5cb85c;
+$yt-yellow-bump: #e2d242;
+
+$yt-light-tub: #04010a;

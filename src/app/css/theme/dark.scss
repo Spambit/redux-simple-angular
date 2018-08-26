@@ -1,0 +1,18 @@
+@import '../shared.scss';
+body.yt-dark {
+  --navbar-item-text-focus-color: azure;
+  --navbar-item-border-color: whitesmoke;
+  --navbar-item-text-color: #{$yt-dark-freeze};
+  --yt-overlay-bg-color: #{$yt-dark-mania};
+  --yt-main-bg-color: #{$yt-dark-smooth};
+  --yt-search-border-color: #{$yt-dark-2d};
+  --yt-sidebar-fg-color: #{$yt-dark-bed};
+  --yt-sidebar-search-border-color: #{$yt-dark-tobe};
+  --yt-sidebar-bg-color: #{$yt-dark-fire};
+  --yt-sidebar-container-bg-color: #{$yt-dark-cristal};
+  --yt-menu-header-fg-color: #{$yt-dark-scrible};
+  --yt-sidebar-menu-decor-fg-color: #{$yt-dark-brick};
+  --yt-sidebar-menu-fg-color: #{$yt-dark-shine};
+  --yt-sidebar-menu-decor-bg-color: #{$yt-dark-brick-shadow};
+  --yt-body-bg-color: #{$yt-dark-almo};
+}

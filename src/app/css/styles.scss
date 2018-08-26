@@ -3,8 +3,4 @@
 @import "./theme/index.scss";
 @import "./shared/scrollbar.scss";
 @import "./shared/bootstrap-modified.scss";
-
-body, html {
-  height: 100%;
-  background: #1b1b1b;
-}
+@import "./shared.scss";

@@ -1,32 +1,5 @@
+@import '~app/css/shared.scss';
 :host {
-  @mixin desktop {
-    @media (min-width: 1024px) {
-      @content;
-    }
-  }
-
-  @mixin tablet {
-    @media (min-width: 768px) and (max-width: 1023px) {
-      @content;
-    }
-  }
-
-  @mixin mobile {
-    @media (max-width: 767px) {
-      @content;
-    }
-  }
-
-  .hide {
-    display: none !important;
-  }
-
-  $sm-device-gap-top: 90px;
-  $lg-device-gap-top: 56px;
-  $yt-main-z-index: 98;
-  $sidebar-overlay-z-index: 99;
-  $sidebar-z-index: 100;
-
   .yt-page-container {
     font-size: 1rem;
     width: 100vw;
@@ -50,7 +23,7 @@
     .main {
       grid-row: 1;
       grid-column: 1/13;
-      background: #3d3c3c;
+      background: var(--yt-main-bg-color);
       z-index: #{$yt-main-z-index};
       padding: 10px;
       display: grid;
@@ -64,18 +37,25 @@
       grid-row: 1;
       grid-column: 1/13;
       z-index: #{$sidebar-overlay-z-index};
-      background: #292828 !important; //TODO - fix important bug
+      background: var(--yt-overlay-bg-color);
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @include mobile {
     .yt-page-container {
       top: $sm-device-gap-top !important;
       height: calc(100vh - #{$sm-device-gap-top}) !important;
     }
   }
 
-  @media screen and (min-width: 769px) {
+  @include tablet {
+    .yt-page-container {
+      top: $lg-device-gap-top !important;
+      height: calc(100vh - #{$lg-device-gap-top}) !important;
+    }
+  }
+
+  @include desktop {
     .yt-page-container {
       top: $lg-device-gap-top !important;
       height: calc(100vh - #{$lg-device-gap-top}) !important;

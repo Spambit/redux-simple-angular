@@ -1,3 +1,4 @@
+@import '~app/css/shared.scss';
 :host {
   display: grid;
   grid-auto-rows: minmax(1em,auto);
@@ -20,6 +21,6 @@
 .sidebar-toggler:focus{
   cursor: pointer;
   text-decoration: none;
-  color: azure !important; //TODO: Fix !important bug.
+  color: var(--navbar-item-text-focus-color) !important; //TODO: Fix !important bug.
   outline: 0;
 }

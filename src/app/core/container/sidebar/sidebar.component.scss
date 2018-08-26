@@ -1,3 +1,4 @@
+@import '~app/css/shared.scss';
 @mixin desktop {
   @media (min-width: 1024px) {
     @content;
@@ -17,10 +18,10 @@
 }
 
 :host {
-  $sidebar-z-index: 100;
-  $sidebar-overlay-z-index: 99;
+  $sidebar-z-index: #{$sidebar-z-index};
+  $sidebar-overlay-z-index: #{$sidebar-overlay-z-index};
   overflow-x: hidden;
-  background: rgba(0, 0, 0, 0);
+  background: var(--yt-sidebar-container-bg-color);
   .hide {
     display: none !important;
   }
@@ -31,7 +32,7 @@
     height: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    background: rgba(0, 0, 0, 0) !important;
+    background: var(--yt-sidebar-container-bg-color)!important;
 
     .sidebar {
       z-index: #{$sidebar-z-index};
@@ -42,16 +43,25 @@
       overflow-y: scroll;
       align-items: center;
       grid-gap: 10px;
-      background: #1d1d1d !important; //must fix all !important bugs
+      background: var(--yt-sidebar-bg-color) !important; //must fix all !important bugs
       .header {
         grid-row: 1/2;
       }
 
       .search {
         grid-row: 2/3;
-        border-top: 1px solid #2b2b2b;
-        border-bottom: 1px solid #2b2b2b;
+        border-top: 1px solid var(--yt-sidebar-search-border-color);
+        border-bottom: 1px solid var(--yt-sidebar-search-border-color);
       }
     }
   }
+}
+
+.sidebar-container .sidebar-header .user-info .user-role,
+.sidebar-container .sidebar-header .user-info .user-status,
+.sidebar-container input.search-menu,
+.sidebar-container .input-group-text,
+.sidebar-container .menu ul li a,
+.sidebar-footer>a {
+  color: var(--yt-sidebar-fg-color);
 }

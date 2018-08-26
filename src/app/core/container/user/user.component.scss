@@ -1,4 +1,5 @@
 // component css goes here
+@import '~app/css/shared.scss';
 .user-container {
   display: grid;
   grid-template-columns: repeat(4,1fr);
@@ -42,8 +43,8 @@
 .user-container .user-info .user-status i {
   font-size: 8px;
   margin-right: 4px;
-  color: #e2d242;
+  color: #{$yt-yellow-bump};
   &.online {
-    color: #5cb85c;
+    color: #{$yt-green-pees};
   }
 }

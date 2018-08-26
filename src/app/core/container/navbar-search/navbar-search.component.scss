@@ -1,12 +1,16 @@
+@import '~app/css/shared.scss';
+
 .sidebar-search input.search-menu,
 .sidebar-search .input-group-text {
-  border-color: #e9dede;
+  border-color: var(--yt-search-border-color);
   box-shadow: none;
+  background: var(--yt-search-border-color);
+  color: var(--navbar-item-text-color);
 }
 
 .sidebar-search .input-group-text:hover,
 .sidebar-search .input-group-text:focus,
 .sidebar-search input.search-menu:focus+span>i {
-  color: azure;
+  color: var(--navbar-item-text-focus-color);
   cursor: pointer;
 }

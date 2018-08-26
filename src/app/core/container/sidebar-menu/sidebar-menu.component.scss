@@ -34,7 +34,7 @@
   font-size: 1.1rem;
   padding: 15px 20px 5px 20px;
   display: inline-block;
-  color: #6c7b88 ;
+  color: var(--yt-menu-header-fg-color) ;
 }
 
 .sidebar-menu ul {
@@ -49,10 +49,6 @@
   text-decoration: none;
   position: relative;
   padding: 8px 30px 8px 20px;
-}
-
-.sidebar-menu ul li a > i {
-  color: rgb(49, 48, 48);
 }
 
 .sidebar-menu ul li a i {
@@ -70,32 +66,24 @@
   animation: swing ease-in-out 0.5s 1 alternate;
 }
 
-.sidebar-menu ul li a:hover > i {
-  color: black;
-}
-
-.sidebar-menu ul li:hover>a {
-  color: #ffffff ;
-}
-
 .sidebar-menu ul li a i {
-  background: #2b2b2b ;
+  background: var(--yt-sidebar-search-border-color) ;
 }
 
 .sidebar-menu ul li a i{
-  color: #c24444 ;
+  color: var(--yt-sidebar-menu-decor-bg-color) ;
 }
 
 .sidebar-menu ul li a span {
-  color: #afaaaa;
+  color: var(--yt-sidebar-menu-fg-color);
   padding-left: 20px;
 }
 
 .sidebar-menu ul li a:hover span {
-  color: azure;
+  color: var(--navbar-item-text-focus-color);
 }
 
 .sidebar-menu ul li a:hover i {
-  color: #ee7e76;
+  color: var(--yt-sidebar-menu-decor-fg-color);
 }
 

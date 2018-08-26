@@ -1,0 +1,19 @@
+body.yt-light {
+  --navbar-item-text-focus-color: rgb(55, 58, 221);
+  --navbar-item-border-color: darkgray;
+  --navbar-item-text-color: #{$yt-light-freeze};
+  --yt-overlay-bg-color: #{$yt-light-mania};
+  --yt-main-bg-color: #{$yt-light-smooth};
+  --yt-search-border-color: #{$yt-light-2d};
+  --yt-sidebar-fg-color: #{$yt-light-bed};
+  --yt-sidebar-search-border-color: #{$yt-light-tobe};
+  --yt-sidebar-bg-color: #{$yt-light-fire};
+  --yt-sidebar-container-bg-color: #{$yt-light-cristal};
+  --yt-menu-header-fg-color: #{$yt-light-scrible};
+  --yt-sidebar-menu-decor-fg-color: #{$yt-light-brick};
+  --yt-sidebar-menu-fg-color: #{$yt-light-shine};
+  --yt-sidebar-menu-decor-bg-color: #{$yt-light-brick-shadow};
+  --yt-body-bg-color: #{$yt-light-almo};
+
+  --yt-sidebar-menu-focus-color: #{$yt-light-tub};
+}
