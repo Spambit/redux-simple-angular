@@ -5,23 +5,13 @@
     "baseUrl": "./",
     "module": "es2015",
     "paths": {
-      "~/*": ["./*"],
-      "@shared/*": ["./app/shared/*"],
-      "@store/*" : ["./app/store/*"],
-      "@container/*": ["./app/core/container/*"],
-      "@components/*" : ["./app/core/components/*"]
+      "~/*": ["/*"],
+      "@shared/*": ["app/shared/*"],
+      "@store/*": ["app/store/*"],
+      "@container/*": ["app/core/container/*"],
+      "@components/*": ["app/core/components/*"]
     }
   },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts"
-  ],
-  "types": [
-    "gapi",
-    "gapi.youtube",
-    "gapi.auth2",
-    "youtube",
-    "jasmine",
-    "node"
-  ]
+  "exclude": ["test.ts", "**/*.spec.ts"],
+  "types": ["gapi", "gapi.youtube", "gapi.auth2", "youtube", "jasmine", "node"]
 }

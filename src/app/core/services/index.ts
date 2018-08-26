@@ -1,3 +1,4 @@
 import { LoginService } from "./google/login.service";
-export const CORE_SERVICES = [LoginService];
+import { UserService } from "./google/user.service";
+export const CORE_SERVICES = [LoginService, UserService];
 export * from "./interceptors";

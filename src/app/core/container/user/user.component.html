@@ -1,11 +1,11 @@
 <div class='user-container'>
   <div class="user-pic">
-    <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/bootstrap4/assets/img/user.jpg"
+    <img class="img-responsive img-rounded" [src]="loggedInUserPicUrl"
       alt="User picture">
   </div>
   <div class="user-info">
-    <span class="user-name">Sambit
-      <strong>Sarkar</strong>
+    <span class="user-name">
+      <strong>{{loggedInUserName}}</strong>
     </span>
     <span class="user-role">Administrator</span>
     <span class="user-status">

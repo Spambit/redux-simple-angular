@@ -2,6 +2,9 @@
   <yt-brand class="navbar-item brand" (sidebarTogglerStateChange)='onSidebarToggleStateChange($event)'></yt-brand>
   <yt-search-bar class="navbar-item search"></yt-search-bar>
   <div class='navbar-item user'>
-    <i class="fa fa-user-circle" aria-hidden="true"></i>
+    <i *ngIf='login$ | async' @fadeInFadeOut  class="fa fa-user-circle" aria-hidden="true"></i>
+    <button *ngIf='!(login$ | async)' @fadeInFadeOut>
+      <span (click)='login()'>Sign In</span>
+    </button>
   </div>
 </div>

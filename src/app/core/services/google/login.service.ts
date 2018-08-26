@@ -1,11 +1,12 @@
-import { Http } from '@angular/http';
-import { Injectable, OnInit } from "@angular/core";
+import * as Utils from "@shared/utils";
+import { Http } from "@angular/http";
+import { Injectable } from "@angular/core";
 import { environment } from "~/environments/environment";
-import { Observable, BehaviorSubject } from "rxjs";
+import { Observable, Subject } from "rxjs";
 
 @Injectable()
 export class LoginService {
-  private login$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  private login$: Subject<boolean> = new Subject();
   private googleAuth: any;
   constructor(private http: Http) {
     this.loadGoogleApi();
@@ -25,13 +26,16 @@ export class LoginService {
           "https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest"
         ]
       })
-      .then(() => {
-        this.googleAuth = gapi.auth2.getAuthInstance();
-        // Listen for sign-in state changes.
-        this.googleAuth.isSignedIn.listen(isSignedIn =>
-          this.updateSigninStatus(isSignedIn)
-        );
-      });
+      .then(
+        () => {
+          this.googleAuth = gapi.auth2.getAuthInstance();
+          // Listen for sign-in state changes.
+          this.googleAuth.isSignedIn.listen(isSignedIn =>
+            this.updateSigninStatus(isSignedIn)
+          );
+        },
+        e => Promise.reject(e)
+      );
   }
 
   private updateSigninStatus(isLoggedIn: boolean) {
@@ -54,12 +58,42 @@ export class LoginService {
     });
   }
 
+  private buildSignInOptions(): gapi.auth2.SigninOptionsBuilder {
+    const options = new gapi.auth2.SigninOptionsBuilder();
+    options.setPrompt("select_account");
+    options.setScope("profile").setScope("email");
+    return options;
+  }
+
+  private throwDeferedError(msg: string): void {
+    Utils.defer(() => {
+      this.login$.error(msg);
+      this.login$ = new Subject();
+    });
+  }
+
   public login(): Observable<boolean> {
-    this.googleAuth.signIn().catch(e => this.login$.error(e));
+    if (!this.googleAuth) {
+      this.throwDeferedError("Google Auth was not loaded.");
+    } else if (this.googleAuth.isSignedIn.get()) {
+      Utils.defer(() => this.login$.next(true));
+    } else {
+      this.googleAuth.signIn(this.buildSignInOptions()).catch(e => {
+        this.throwDeferedError(e);
+      });
+    }
     return this.login$; // TODO - check its deferness later - if signIn immediately emits next.
   }
   public logout(): Observable<boolean> {
-    this.googleAuth.signOut().catch(e => this.login$.error(e));
+    if (!this.googleAuth) {
+      this.throwDeferedError("Google Auth was not loaded.");
+    } else if (!this.googleAuth.isSignedIn.get()) {
+      Utils.defer(() => this.login$.next(true));
+    } else {
+      this.googleAuth.signOut().catch(e => {
+        this.throwDeferedError("logout failed");
+      });
+    }
     return this.login$;
   }
 }

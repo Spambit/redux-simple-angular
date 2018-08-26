@@ -3,20 +3,13 @@ import { AuthState } from "../models/auth.model";
 export enum AuthActionType {
   LOGIN = "[Auth] login",
   LOGOUT = "[Auth] logout",
-  LOGINNG_IN = "[Auth] loginng In",
   LOGGED_IN = "[Auth] logged In",
-  LOGINNG_OUT = "[Auth] loginng Out",
   LOGGED_OUT = "[Auth] logged Out",
   ERROR = "[Auth] error"
 }
 
 export class LoginAction implements YTubeActions {
   readonly type = AuthActionType.LOGIN;
-  readonly payload: AuthState;
-}
-
-export class LoggingInAction implements YTubeActions {
-  readonly type = AuthActionType.LOGINNG_IN;
   readonly payload: AuthState;
 }
 
@@ -27,11 +20,6 @@ export class LoggedInAction implements YTubeActions {
 
 export class LogoutAction implements YTubeActions {
   readonly type = AuthActionType.LOGOUT;
-  readonly payload: AuthState;
-}
-
-export class LoggingOutAction implements YTubeActions {
-  readonly type = AuthActionType.LOGINNG_OUT;
   readonly payload: AuthState;
 }
 
@@ -50,6 +38,4 @@ export type AuthActionsUnion =
   | LogoutAction
   | LoggedInAction
   | LoggedOutAction
-  | LoggingOutAction
-  | LoggingInAction
   | LoginErrorAction;
