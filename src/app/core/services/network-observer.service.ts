@@ -1,45 +1,42 @@
 import { Http } from "@angular/http";
-import { fromEvent, Subscription, of, Observable } from "rxjs";
+import { fromEvent, Subscription, Observable, Subject } from "rxjs";
 import { Injectable } from "@angular/core";
+import { merge, mapTo } from "rxjs/operators";
 
 @Injectable()
 export class NetworkObserverService {
   private subscription: Subscription;
-  private online: boolean = navigator.onLine;
+  private networkChange: Subject<boolean> = new Subject();
+  private online$ = fromEvent(window, "online").pipe(mapTo(true));
+  private offline$ = fromEvent(window, "offline").pipe(mapTo(false));
   constructor(
     private http: Http,
-    private online$ = fromEvent(window, "online"),
-    offline$ = fromEvent(window, "offline")
   ) {
-    online$.subscribe(event => {
-      this.networkStatusChange();
-    });
-    offline$.subscribe(event => {
-      this.networkStatusChange();
+    this.online$.pipe(merge(this.offline$)).subscribe(isOnline => {
+      this.networkStatusChange(isOnline);
     });
   }
-  private networkStatusChange() {
+  private networkStatusChange(isOnline: boolean) {
     if (navigator.onLine) {
       this.ping()
-        .then(() => {
-          this.online = true;
-        })
-        .catch(() => {
-          this.online = false;
+        .then((success: boolean) => {
+          this.networkChange.next(success);
         });
     } else {
-      this.online = false;
+      this.networkChange.next(false);
     }
   }
   private ping() {
     return new Promise((resolve, reject) => {
-      this.subscription = this.http
-        .get("https://via.placeholder.com/350x150")
-        .subscribe(undefined, e => reject(e), () => resolve());
+      const url = "https://via.placeholder.com/1x1";
+      const img = new Image();
+      img.onload = () => resolve(true);
+      img.onerror = () => resolve(false);
+      img.src = url;
     });
   }
 
   observeNetworkChange(): Observable<boolean> {
-    return of(this.online);
+    return this.networkChange;
   }
 }

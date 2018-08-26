@@ -9,8 +9,8 @@
     </span>
     <span class="user-role">Administrator</span>
     <span class="user-status">
-      <i class="fa fa-circle"></i>
-      <span>Online</span>
+      <i class="fa fa-circle" [class.online]='online'></i>
+      <span>{{onlineStatusMsg}}</span>
     </span>
   </div>
 </div>

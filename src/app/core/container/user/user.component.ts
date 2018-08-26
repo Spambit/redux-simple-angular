@@ -2,6 +2,7 @@ import { Subscription } from "rxjs";
 import { Store } from "@ngrx/store";
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import * as fromStore from "@store/index";
+import { NetworkObserverService } from "~/app/core/services/network-observer.service";
 
 @Component({
   moduleId: module.id,
@@ -12,17 +13,26 @@ import * as fromStore from "@store/index";
 export class UserComponent implements OnInit, OnDestroy {
   loggedInUserName: string;
   loggedInUserPicUrl: string;
-  private subscription: Subscription;
-  constructor(private store: Store<fromStore.AppState>) {}
+  private authObserverSubscription: Subscription;
+  private networkObserverSubscription: Subscription;
+  online: boolean = navigator.onLine;
+  constructor(private store: Store<fromStore.AppState>,
+  private networkObserver: NetworkObserverService) {}
+  get onlineStatusMsg() {
+    return this.online ? "Online" : "Offline";
+  }
   ngOnInit(): void {
-    this.subscription = this.store
+    this.authObserverSubscription = this.store
       .select(fromStore.selectAuthState)
       .subscribe(authState => {
         this.loggedInUserName = authState.user.name;
         this.loggedInUserPicUrl = authState.user.profilePic;
       });
+    this.networkObserverSubscription = this.networkObserver.observeNetworkChange().subscribe((isOnline) => {
+      this.online = isOnline;
+    });
   }
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.authObserverSubscription.unsubscribe();
   }
 }

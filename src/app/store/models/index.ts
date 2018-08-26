@@ -34,5 +34,5 @@ export const selectSidebarState = createSelector(
 
 export const defaultAppState: AppState = {
   auth: AuthState.createDefault(),
-  layout: fromLayout.LayoutState.createDefaultState()
+  layout: fromLayout.LayoutState.createDefaultState(),
 };

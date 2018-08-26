@@ -4,5 +4,5 @@ import * as fromLayout from "./layout.reducers";
 import { ActionReducerMap } from "@ngrx/store";
 export const reducers: ActionReducerMap<AppState> = {
   auth: fromAuth.reducer,
-  layout: fromLayout.reducers
+  layout: fromLayout.reducers,
 };

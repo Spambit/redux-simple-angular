@@ -42,5 +42,8 @@
 .user-container .user-info .user-status i {
   font-size: 8px;
   margin-right: 4px;
-  color: #5cb85c;
+  color: #e2d242;
+  &.online {
+    color: #5cb85c;
+  }
 }

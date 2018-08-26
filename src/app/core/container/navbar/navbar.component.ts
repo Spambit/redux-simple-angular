@@ -1,4 +1,4 @@
-import { Animations } from '@shared/animations';
+import { Animations } from "@shared/animations";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import * as fromStore from "@store/index";
